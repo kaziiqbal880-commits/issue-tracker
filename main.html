@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Tracker | <main></main>
+    </title>
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <header class="flex justify-between px-20 items-center shadow-sm">
+        <div class="left flex gap-1 items-center">
+            <img class="w-9" src="./assets/github-logo.png" alt="">
+            <h1 class="font-semibold text-2xl">GitHub Issues Tracker</h1>
+        </div>
+        <div class="right flex justify-between items-center gap-3 py-3">
+            <div class="">
+                <button id="search-btn" class="btn"><i class="fa-brands fa-sistrix"></i>Search issues</button>
+            </div>
+            <div>
+                <button id="issue-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i>New Issues</button>
+            </div>
+        </div>
+    </header>
+    <nav class="w-[1110px] mx-auto shadow-sm mt-14 rounded-sm">
+        <div class="flex p-4 gap-2">
+            <button id="all" class="btn px-10 btn-primary">All</button>
+            <button id="open" class="btn px-10">open</button>
+            <button id="close" class="btn px-10">Close</button>
+        </div>
+
+    </nav>
+    <main class="w-[1110px] mx-auto shadow-sm mt-6">
+
+        <header class="p-2 flex justify-between items-center">
+            <div class="left flex items-center ">
+                <div class="bg-[#ECE4FF] rounded-full p-1">
+                    <img src="./assets/Aperture.png" alt="">
+                </div>
+                <div>
+                    <h2 class="font-semibold ">50 Issues</h2>
+                    <p class="text-[#64748B]">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="right flex items-center gap-6">
+                <div class="flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-green-600"></span>
+                    <span class="text-gray-700">Open</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-[#A855F7]"></span>
+                    <span class="text-gray-700">Close</span>
+                </div>
+            </div>
+        </header>
+        <section id="issue-container" class="w-[1060px] mx-auto grid grid-cols-4">
+            <div>
+
+            </div>
+
+        </section>
+
+    </main>
+    <script src="./main.js"></script>
+</body>
+
+</html>

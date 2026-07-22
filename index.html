@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Tracker</title>
+    <title>GitHub Tracker | Login</title>
     <!-- DaisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
@@ -24,7 +24,44 @@
 </head>
 
 <body>
-    <h1>hello</h1>
+    <header class="bg-white w-[520px] mx-auto shadow-lg p-10  space-y-5 my-10">
+        <div class="flex justify-center">
+            <img class="flex justify-center" src="./assets/github-logo.png" alt="">
+        </div>
+        <div class="text-center justify-center items-center">
+
+            <h1 class="font-semibold text-2xl">GitHub Issues Tracker</h1>
+            <p class="text-[#64748B]">Sign in to manage your issues</p>
+
+        </div>
+        <div class="flex justify-center">
+            <fieldset class="fieldset border-none rounded-box w-full border p-4">
+
+                <label class="label">Username</label>
+                <input id="user-name" type="text" class="input w-full" placeholder="Enter Username" />
+
+                <label class="label">Password</label>
+                <input id="password" type="password" class="input w-full" placeholder="Password" />
+
+                <button id="sign-btn" class="btn btn-primary mt-4">Sign In</button>
+            </fieldset>
+        </div>
+        <div class="flex items-center my-6">
+            <hr class="flex-grow border-gray-300">
+            <span class="mx-4 text-gray-500 font-medium">OR</span>
+            <hr class="flex-grow border-gray-300">
+        </div>
+
+        <div class="space-y-5 text-center">
+            <p class="text-[#64748B]">Demo Credentials</p>
+            <div>
+                <h1><span class="font-semibold">UserName:</span>admin</h1>
+                <h1><span class="font-semibold">Password:</span>admin123</h1>
+            </div>
+        </div>
+
+    </header>
+
 
     <script src="./github.js"></script>
 </body>

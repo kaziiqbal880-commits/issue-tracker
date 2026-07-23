@@ -1,23 +1,37 @@
-
+const manageSpinner = (status) => {
+    if (status == true) {
+        document.getElementById("spinner").classList.remove('hidden')
+        document.getElementById("issue-container").classList.add('hidden')
+    } else {
+        document.getElementById("issue-container").classList.remove('hidden')
+        document.getElementById("spinner").classList.add('hidden')
+    }
+}
+// toshowing the labels only
 const showTwo = (arr) => {
     const newEl = arr.map(iteam => `<span class="px-3 py-1 ${iteam == 'bug' ? 'bg-red-200' : iteam == 'enhancement' ? 'bg-green-200' : iteam == 'documentation' ? 'bg-blue-200' : iteam == 'good first issue' ? 'bg-gray-300' : 'bg-orange-300'}  rounded-full text-xs font-medium">${iteam}</span>`)
     return (newEl.join(""))
 }
 
-// shaed
+// shared
 const issueCOntainer = document.getElementById("issue-container")
 const totalIssues = document.getElementById('total-issues')
 const calCulate = () => {
     totalIssues.innerText = issueCOntainer.children.length;
 
 }
-
-
-const loadIssues = () => {
-
+// fetches all issues
+const loadAllIssues = (status = "all") => {
+    manageSpinner(true)
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
         .then(res => res.json())
-        .then(data => displayIssues(data.data))
+        .then(data => {
+            let issues = data.data;
+            if (status !== "all") {
+                issues = issues.filter(issue => issue.status === status)
+            }
+            displayIssues(issues)
+        })
 
 }
 const displayIssues = (issues) => {
@@ -51,6 +65,7 @@ const displayIssues = (issues) => {
                     </div>
                 </div>`
         issueCOntainer.appendChild(creatCard)
+        manageSpinner(false)
 
     });
     calCulate()
@@ -125,18 +140,7 @@ searchBar.addEventListener('input', (event) => {
 
 })
 
-const loadAllIssues = (status = "all") => {
-    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
-        .then(res => res.json())
-        .then(data => {
-            let issues = data.data;
-            if (status !== "all") {
-                issues = issues.filter(issue => issue.status === status)
-            }
-            displayIssues(issues)
-        })
 
-}
 const removeActive = () => {
     const buttons = document.querySelectorAll(".btn-category")
     buttons.forEach(button => {
@@ -167,4 +171,4 @@ closeBTn.addEventListener('click', () => {
 
 // Add your filtering logic here
 // loadSingleIssue()
-loadIssues()
+loadAllIssues()

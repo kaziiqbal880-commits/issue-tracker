@@ -61,13 +61,14 @@ const displayIssues = (issues) => {
                     <hr class="my-2 text-gray-300 ">
                     <div class="space-y-2">
                         <p class="small">${issue.author}</p>
-                        <p class="small">${issue.updatedAt}</p>
+                        <p class="small">${issue.createdAt}</p>
                     </div>
                 </div>`
         issueCOntainer.appendChild(creatCard)
-        manageSpinner(false)
+
 
     });
+    manageSpinner(false)
     calCulate()
 
 }
@@ -99,10 +100,7 @@ const displayEveryIssue = (iteam) => {
                             <div class = "flex gap-1">
                                 ${showTwo(iteam.labels)}
                             </div>
-                            <p class="small">The navigation menu doesn't collapse properly on mobile devices. Need to
-                                fix the
-                                responsive
-                                behavior.</p>
+                            <p class="small">${iteam.description}</p>
                             <div class="flex justify-around">
                                 <div>
                                     <p>Assignee:</p>
@@ -128,7 +126,7 @@ searchBar.addEventListener('input', (event) => {
 
     const query = event.target.value.trim();
     if (!query) {
-        loadIssues(); // or whatever function loads all issues
+        loadAllIssues(); // or whatever function loads all issues
         return;
     }
 

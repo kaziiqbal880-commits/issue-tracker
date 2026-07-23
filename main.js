@@ -104,12 +104,12 @@ const displayEveryIssue = (iteam) => {
                             <div class="flex justify-around">
                                 <div>
                                     <p>Assignee:</p>
-                                    <h2 class="font-bold">Ikbal</h2>
+                                    <h2 class="font-bold">${iteam.assignee}</h2>
 
                                 </div>
                                 <div class = "space-y-1">
                                     <p>Priority:</p>
-                                    <span class="bg-red-400 text-white rounded-full text-sm px-3 py-1">${iteam.priority}</span>
+                                    <span class="${iteam.priority == 'high' ? 'text-red-600 bg-red-200' : iteam.priority == 'medium' ? 'text-yellow-600 bg-yellow-100' : 'text-gray-600 bg-gray-100'} text-white rounded-full text-sm px-3 py-1">${iteam.priority}</span>
 
                                 </div>
                             </div>

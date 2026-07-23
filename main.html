@@ -32,7 +32,8 @@
         </div>
         <div class="right flex justify-between items-center gap-3 py-3">
             <div class="">
-                <button id="search-btn" class="btn"><i class="fa-brands fa-sistrix"></i>Search issues</button>
+                <input id="search-btn" placeholder="Search issues" class="p-2 border-gray-200">
+
             </div>
             <div>
                 <button id="issue-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i>New Issues</button>
@@ -41,9 +42,9 @@
     </header>
     <nav class="w-[1110px] mx-auto shadow-sm mt-14 rounded-sm">
         <div class="flex p-4 gap-2">
-            <button id="all" class="btn px-10 btn-primary">All</button>
-            <button id="open" class="btn px-10">open</button>
-            <button id="close" class="btn px-10">Close</button>
+            <button id="all" class="btn px-10 active btn-category">All</button>
+            <button id="open" class="btn px-10 btn-category">open</button>
+            <button id="close" class="btn px-10 btn-category">Close</button>
         </div>
 
     </nav>
@@ -55,7 +56,11 @@
                     <img src="./assets/Aperture.png" alt="">
                 </div>
                 <div>
-                    <h2 class="font-semibold ">50 Issues</h2>
+
+                    <div class="font-semibold flex gap-1">
+                        <p id="total-issues">0</p>
+                        <p>issues</p>
+                    </div>
                     <p class="text-[#64748B]">Track and manage your project issues</p>
                 </div>
             </div>
@@ -70,8 +75,30 @@
                 </div>
             </div>
         </header>
+        <section>
+            <!-- Open the modal using ID.showModal() method -->
+            <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+            <dialog id="my_modal" class="modal">
+                <div class="modal-box">
+                    <div id="single-issue-box">
 
-        <section class="w-[1060px] mx-auto ">
+
+                    </div>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn btn-primary">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+        </section>
+
+        <div id="spinner" class="flex justify-center py-5 hidden">
+            <span class="loading loading-spinner text-error"></span>
+        </div>
+
+        <section class="w-[1100px] mx-auto ">
             <div id="issue-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-6">
 
             </div>

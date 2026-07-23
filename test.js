@@ -10,3 +10,5 @@ showTwo(labels)
         class="fa-solid fa-bug"></i>BUG</span >
             <span class="px-3 py-1 bg-yellow-200 rounded-full text-xs font-medium"><i
                 class="fa-regular fa-life-ring"></i>HELP WANTED</span>
+
+                ${ issue.status === 'open' ? './assets/Closed-Status.png' : './assets/Open-Status.png' }
